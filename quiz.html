@@ -5,84 +5,119 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Korean Quiz</title>
 
-<!-- Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Cherry+Swash:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
     body {
         font-family: "Poppins", sans-serif;
-        background-color: #ffd6e8;
+        background-color: #ffd6ec;
         margin: 0;
         padding: 0;
-        color: #4a4a4a;
+        color: #333;
+        text-align: center;
     }
+
     header {
         background-color: #ffb6d9;
-        padding: 20px;
-        text-align: center;
-        font-size: 28px;
-        font-weight: 700;
-        color: white;
+        padding: 25px;
+        border-bottom: 3px solid #ff9ac5;
     }
+
+    header h1 {
+        font-family: "Cherry Swash", cursive;
+        font-size: 40px;
+        color: #d14b87;
+        margin: 0;
+    }
+
     .container {
         max-width: 800px;
         margin: 25px auto;
         background: white;
         padding: 25px;
-        border-radius: 15px;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        border-radius: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        text-align: left;
     }
-    #question {
-        font-size: 22px;
+
+    /* PROGRESS BAR */
+    .progress-wrapper {
+        width: 100%;
+        height: 15px;
+        background: #ffe1f3;
+        border-radius: 10px;
         margin-bottom: 20px;
-        font-weight: 600;
     }
+
+    .progress-bar {
+        height: 100%;
+        width: 0%;
+        background: #ff8fc7;
+        border-radius: 10px;
+        transition: width 0.4s ease;
+    }
+
+    #question {
+        font-size: 24px;
+        font-weight: 600;
+        color: #c53875;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
     .option {
         background: #ffe6f2;
-        padding: 12px;
+        padding: 14px;
         margin: 10px 0;
-        border-radius: 10px;
+        border-radius: 12px;
         cursor: pointer;
         font-size: 18px;
         border: 2px solid transparent;
-    }
-    .option:hover {
-        background: #ffcee8;
+        transition: 0.2s;
     }
 
-    /* Correct / Wrong colors */
-    .correct {
-        background: #c8f7c5 !important;
-        border-color: #55c451;
+    .option:hover {
+        background: #ffd1ec;
     }
+
+    .correct {
+        background: #d8ffd6 !important;
+        border-color: #4caf50;
+    }
+
     .wrong {
-        background: #ffb3b3 !important;
+        background: #ffd1d1 !important;
         border-color: #ff4c4c;
     }
 
     #nextBtn {
         display: none;
         margin-top: 20px;
-        padding: 12px 20px;
+        padding: 12px 25px;
         background: #ff8fc7;
         color: white;
         border: none;
-        border-radius: 10px;
+        border-radius: 12px;
         font-size: 18px;
         cursor: pointer;
     }
+
     #nextBtn:hover {
         background: #ff78b9;
     }
+
     #result {
-        font-size: 22px;
+        font-size: 24px;
         font-weight: 700;
-        text-align: center;
+        color: #b31f63;
         margin-top: 25px;
+        text-align: center;
     }
+
     a.back {
         display: block;
-        width: 120px;
+        width: 140px;
         margin: 30px auto;
         text-align: center;
         padding: 12px;
@@ -92,13 +127,26 @@
         border-radius: 10px;
         font-size: 18px;
     }
+
+    a.back:hover {
+        background: #ff78b9;
+    }
 </style>
+
 </head>
 <body>
 
-<header>Korean Quiz</header>
+<header>
+    <h1>Korean Quiz</h1>
+</header>
 
 <div class="container">
+
+    <!-- ★ PROGRESS BAR ★ -->
+    <div class="progress-wrapper">
+        <div id="progressBar" class="progress-bar"></div>
+    </div>
+
     <div id="question">Loading quiz...</div>
     <div id="options"></div>
     <button id="nextBtn" onclick="nextQuestion()">Next</button>
@@ -147,6 +195,7 @@ function startQuiz() {
     quiz = shuffle([...allQuestions]).slice(0, 20);
     index = 0;
     score = 0;
+    updateProgress();
     showQuestion();
 }
 
@@ -175,8 +224,7 @@ function checkAnswer(selected, question, selectedDiv) {
     const optionDivs = document.querySelectorAll(".option");
 
     optionDivs.forEach(div => {
-        div.style.pointerEvents = "none"; // disable clicking
-
+        div.style.pointerEvents = "none";
         if (div.innerText === correctAns) div.classList.add("correct");
         if (div.innerText === selected && selected !== correctAns) div.classList.add("wrong");
     });
@@ -189,13 +237,22 @@ function checkAnswer(selected, question, selectedDiv) {
 function nextQuestion() {
     index++;
     document.getElementById("nextBtn").style.display = "none";
+    updateProgress();
+
     if (index < quiz.length) showQuestion();
     else endQuiz();
+}
+
+/* ★ Update progress bar after every question */
+function updateProgress() {
+    const progress = ((index) / 20) * 100;
+    document.getElementById("progressBar").style.width = progress + "%";
 }
 
 function endQuiz() {
     document.getElementById("question").innerText = "Quiz Completed!";
     document.getElementById("options").innerHTML = "";
+    document.getElementById("progressBar").style.width = "100%";
     document.getElementById("result").innerText =
         `Your Score: ${score} / ${quiz.length}`;
 }
@@ -205,6 +262,7 @@ startQuiz();
 
 </body>
 </html>
+
 
 
 
