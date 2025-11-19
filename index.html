@@ -1,75 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Korean Learning App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Korean Learning App</title>
 
-    <!-- Google Aesthetic Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Cherry+Swash:wght@400;700&display=swap" rel="stylesheet" />
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #ffd9e8; /* Baby pink aesthetic */
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-        }
+  <style>
+    body {
+      background-color: #ffd6ec;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #333;
+    }
 
-        header {
-            width: 100%;
-            background: #ffb3ce;
-            color: #ffffff;
-            padding: 25px 0;
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-        }
+    header {
+      background: #ffb6d9;
+      padding: 25px;
+      border-bottom: 3px solid #ff9ac5;
+    }
 
-        .menu {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 25px;
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
+    h1 {
+      font-family: 'Cherry Swash', cursive;
+      color: #d14b87;
+      font-size: 42px;
+      margin: 0;
+    }
 
-        .card {
-            background: #ffbad6;
-            border-radius: 18px;
-            padding: 25px;
-            font-size: 20px;
-            font-weight: 600;
-            color: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-            transition: 0.3s ease;
-        }
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 25px;
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
 
-        .card:hover {
-            transform: scale(1.07);
-            background: #ff9fc8;
-            cursor: pointer;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-        }
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      font-size: 22px;
+      font-weight: 600;
+      color: #d14b87;
+      transition: 0.3s ease;
+    }
 
-        a {
-            text-decoration: none;
-        }
-    </style>
+    .card:hover {
+      transform: scale(1.07);
+      background: #ffe3f3;
+      cursor: pointer;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    nav {
+      background: #ffb6d9;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      border-top: 3px solid #ff9ac5;
+      margin-top: 40px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #b31f63;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
 </head>
 
 <body>
-    <header>Korean Learning App</header>
 
-    <div class="menu">
-        <a href="numbers.html"><div class="card">Numbers</div></a>
-        <a href="hangul.html"><div class="card">Hangul Basics</div></a>
-        <a href="common_phrases.html"><div class="card">Common Phrases</div></a>
-        <a href="foreigner_phrases.html"><div class="card">Phrases for Foreigners</div></a>
-        <a href="quiz.html"><div class="card">Quiz</div></a>
-    </div>
+  <header>
+    <h1>Korean Learning App</h1>
+  </header>
+
+  <div class="menu">
+    <a href="numbers.html"><div class="card">Numbers</div></a>
+    <a href="hangul.html"><div class="card">Hangul Basics</div></a>
+    <a href="common_phrases.html"><div class="card">Common Phrases</div></a>
+    <a href="foreigner_phrases.html"><div class="card">Phrases for Foreigners</div></a>
+    <a href="quiz.html"><div class="card">Quiz</div></a>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="numbers.html">Numbers</a>
+    <a href="hangul.html">Hangul</a>
+    <a href="common_phrases.html">Phrases</a>
+    <a href="quiz.html">Quiz</a>
+  </nav>
+
 </body>
 </html>
+
+
