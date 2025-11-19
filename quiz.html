@@ -1,155 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Korean Quiz</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Korean Quiz</title>
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        font-family: "Poppins", sans-serif;
+        background-color: #ffd6e8;
+        margin: 0;
+        padding: 0;
+        color: #4a4a4a;
+    }
+    header {
+        background-color: #ffb6d9;
+        padding: 20px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: 700;
+        color: white;
+    }
+    .container {
+        max-width: 800px;
+        margin: 25px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    #question {
+        font-size: 22px;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+    .option {
+        background: #ffe6f2;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        border: 2px solid transparent;
+    }
+    .option:hover {
+        background: #ffcee8;
+    }
+
+    /* Correct / Wrong colors */
+    .correct {
+        background: #c8f7c5 !important;
+        border-color: #55c451;
+    }
+    .wrong {
+        background: #ffb3b3 !important;
+        border-color: #ff4c4c;
+    }
+
+    #nextBtn {
+        display: none;
+        margin-top: 20px;
+        padding: 12px 20px;
+        background: #ff8fc7;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    #nextBtn:hover {
+        background: #ff78b9;
+    }
+    #result {
+        font-size: 22px;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 25px;
+    }
+    a.back {
+        display: block;
+        width: 120px;
+        margin: 30px auto;
+        text-align: center;
+        padding: 12px;
+        background: #ff8fc7;
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        font-size: 18px;
+    }
+</style>
 </head>
-
 <body>
-  <div class="container">
-    <h1 class="title">Korean Language Quiz</h1>
 
-    <div id="quiz-box">
-      <p id="question"></p>
+<header>Korean Quiz</header>
 
-      <div id="options"></div>
+<div class="container">
+    <div id="question">Loading quiz...</div>
+    <div id="options"></div>
+    <button id="nextBtn" onclick="nextQuestion()">Next</button>
+    <div id="result"></div>
+</div>
 
-      <input id="text-answer" type="text" placeholder="Type your answer here" style="display:none;" />
-
-      <button id="submit-btn" onclick="submitAnswer()">Submit</button>
-
-      <p id="result"></p>
-      <p id="score"></p>
-
-      <button id="next-btn" onclick="loadNextQuestion()" style="display:none;">Next Question</button>
-    </div>
-
-  </div>
+<a class="back" href="index.html">Back</a>
 
 <script>
-/* --------------------------
-   QUIZ QUESTIONS (MERGED)
---------------------------- */
-
-// Multiple choice
-const mcqQuestions = [
-  { q: "What is 안녕하세요?", options: ["Hello", "Goodbye", "Thanks", "Sorry"], answer: "Hello" },
-  { q: "What is 감사합니다?", options: ["Sorry", "Thank you", "Hello", "Excuse me"], answer: "Thank you" },
-  { q: "Korean word for 'Water'?", options: ["불", "물", "눈", "문"], answer: "물" },
-  { q: "What is 사랑?", options: ["Hate", "Love", "Friend", "Food"], answer: "Love" },
-  { q: "What is 학교?", options: ["Library", "Home", "School", "Hospital"], answer: "School" },
-  { q: "What is 사람?", options: ["Dog", "Cat", "Person", "Child"], answer: "Person" },
-  { q: "What is 음식?", options: ["Food", "Drink", "Money", "Bag"], answer: "Food" },
-  { q: "Meaning of 시간?", options: ["Clock", "Hour", "Time", "Day"], answer: "Time" },
-  { q: "What is 한국?", options: ["Korea", "Japan", "China", "USA"], answer: "Korea" },
-  { q: "Meaning of 책?", options: ["Pen", "Bag", "Book", "Room"], answer: "Book" },
+const allQuestions = [
+    { q: "What does 안녕하세요 mean?", opts: ["Hello", "Thank you", "Sorry", "Good night"], ans: 0 },
+    { q: "한국어 means?", opts: ["Korean language", "Korean food", "Korea", "Hello"], ans: 0 },
+    { q: "'사랑해요' means?", opts: ["I miss you", "I love you", "Good job", "Help me"], ans: 1 },
+    { q: "'물' means?", opts: ["Food", "Water", "Money", "Store"], ans: 1 },
+    { q: "'얼마예요?' means?", opts: ["Where?", "How much?", "Why?", "When?"], ans: 1 },
+    { q: "'도와주세요' means?", opts: ["Please help", "Please wait", "Please sit", "Please come"], ans: 0 },
+    { q: "What is 10 in Korean?", opts: ["하나", "열", "다섯", "스물"], ans: 1 },
+    { q: "'병원' means?", opts: ["School", "Hospital", "Restaurant", "Station"], ans: 1 },
+    { q: "'모르겠어요' means?", opts: ["I know", "I don't know", "I forgot", "I understand"], ans: 1 },
+    { q: "'괜찮아요' means?", opts: ["It's okay", "It's expensive", "It's cold", "It's wrong"], ans: 0 },
+    { q: "'밥' means?", opts: ["Rice/meal", "Bread", "Egg", "Juice"], ans: 0 },
+    { q: "'어디예요?' means?", opts: ["Where is it?", "What is it?", "Why?", "How many?"], ans: 0 },
+    { q: "'빨리' means?", opts: ["Slow", "Fast", "Hot", "Delicious"], ans: 1 },
+    { q: "'천천히' means?", opts: ["Slowly", "Quickly", "Again", "Quietly"], ans: 0 },
+    { q: "'하지만' means?", opts: ["Because", "However", "Maybe", "Always"], ans: 1 },
+    { q: "'친구' means?", opts: ["Teacher", "Friend", "Mother", "Student"], ans: 1 },
+    { q: "'집' means?", opts: ["School", "House", "Park", "Shop"], ans: 1 },
+    { q: "'학교' means?", opts: ["Hospital", "Restaurant", "School", "Market"], ans: 2 },
+    { q: "'고맙습니다' means?", opts: ["Sorry", "Thank you", "Nice to meet you", "No"], ans: 1 },
+    { q: "'뭐예요?' means?", opts: ["Where?", "What is it?", "How much?", "Who?"], ans: 1 }
 ];
 
-// Typing questions
-const typingQuestions = [
-  { q: "Type the Korean word: Hello", answer: "안녕하세요" },
-  { q: "Type the Korean word: Thank you", answer: "감사합니다" },
-  { q: "Type the Korean word: Love", answer: "사랑" },
-  { q: "Type the Korean word: Food", answer: "음식" },
-  { q: "Type the Korean word: Water", answer: "물" },
-  { q: "Type the Korean word: School", answer: "학교" },
-  { q: "Type the Korean word: Korea", answer: "한국" },
-  { q: "Type the Korean word: Person", answer: "사람" },
-  { q: "Type the Korean word: Book", answer: "책" },
-  { q: "Type the Korean word: Time", answer: "시간" },
-];
-
-let allQuestions = []; 
-let currentIndex = 0;
+let quiz = [];
+let index = 0;
 let score = 0;
-let currentQuestion;
 
-// Shuffle function
 function shuffle(array) {
-  return array.sort(() => Math.random() - 0.5);
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }
 
-// Start quiz
 function startQuiz() {
-  allQuestions = shuffle([...mcqQuestions, ...typingQuestions]).slice(0, 20);
-  loadNextQuestion();
+    quiz = shuffle([...allQuestions]).slice(0, 20);
+    index = 0;
+    score = 0;
+    showQuestion();
 }
 
-function loadNextQuestion() {
-  document.getElementById("result").innerText = "";
-  document.getElementById("next-btn").style.display = "none";
-  document.getElementById("submit-btn").style.display = "block";
+function showQuestion() {
+    document.getElementById("result").innerHTML = "";
+    const q = quiz[index];
+    document.getElementById("question").innerText = q.q;
 
-  if (currentIndex >= allQuestions.length) {
-    document.getElementById("quiz-box").innerHTML =
-      `<h2>Quiz Completed!</h2><p>Your Score: ${score} / ${allQuestions.length}</p>`;
-    return;
-  }
+    const optionsDiv = document.getElementById("options");
+    optionsDiv.innerHTML = "";
 
-  currentQuestion = allQuestions[currentIndex];
-  document.getElementById("question").innerText = currentQuestion.q;
+    let shuffledOpts = shuffle([...q.opts]);
 
-  const optionsBox = document.getElementById("options");
-  const textAnswer = document.getElementById("text-answer");
-
-  // If MCQ type
-  if (currentQuestion.options) {
-    optionsBox.innerHTML = "";
-    textAnswer.style.display = "none";
-
-    currentQuestion.options.forEach(opt => {
-      optionsBox.innerHTML += `
-        <button class="option-btn" onclick="selectOption('${opt}')">${opt}</button>
-      `;
+    shuffledOpts.forEach(opt => {
+        const div = document.createElement("div");
+        div.className = "option";
+        div.innerText = opt;
+        div.onclick = () => checkAnswer(opt, q, div);
+        optionsDiv.appendChild(div);
     });
-  }
-  // If typing question
-  else {
-    optionsBox.innerHTML = "";
-    textAnswer.style.display = "block";
-    textAnswer.value = "";
-  }
 }
 
-let selectedOption = "";
+function checkAnswer(selected, question, selectedDiv) {
+    const correctAns = question.opts[question.ans];
 
-function selectOption(option) {
-  selectedOption = option;
+    const optionDivs = document.querySelectorAll(".option");
+
+    optionDivs.forEach(div => {
+        div.style.pointerEvents = "none"; // disable clicking
+
+        if (div.innerText === correctAns) div.classList.add("correct");
+        if (div.innerText === selected && selected !== correctAns) div.classList.add("wrong");
+    });
+
+    if (selected === correctAns) score++;
+
+    document.getElementById("nextBtn").style.display = "block";
 }
 
-function submitAnswer() {
-  let result = document.getElementById("result");
-  const textAnswer = document.getElementById("text-answer");
-
-  let userAnswer = selectedOption || textAnswer.value.trim();
-
-  if (!userAnswer) {
-    result.innerText = "Please select or type an answer!";
-    return;
-  }
-
-  if (userAnswer == currentQuestion.answer) {
-    result.innerHTML = "✔ Correct!";
-    result.style.color = "green";
-    score++;
-  } else {
-    result.innerHTML = `✘ Wrong! Correct answer: ${currentQuestion.answer}`;
-    result.style.color = "red";
-  }
-
-  document.getElementById("score").innerText = `Score: ${score}`;
-  document.getElementById("submit-btn").style.display = "none";
-  document.getElementById("next-btn").style.display = "block";
-
-  selectedOption = "";
-  currentIndex++;
+function nextQuestion() {
+    index++;
+    document.getElementById("nextBtn").style.display = "none";
+    if (index < quiz.length) showQuestion();
+    else endQuiz();
 }
 
-window.onload = startQuiz;
+function endQuiz() {
+    document.getElementById("question").innerText = "Quiz Completed!";
+    document.getElementById("options").innerHTML = "";
+    document.getElementById("result").innerText =
+        `Your Score: ${score} / ${quiz.length}`;
+}
+
+startQuiz();
 </script>
 
 </body>
 </html>
+
+
+
+      
 
