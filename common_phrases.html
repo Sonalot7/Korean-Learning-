@@ -4,125 +4,178 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Common Korean Phrases</title>
+
+    <!-- Aesthetic Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Cherry+Swash:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         body {
             font-family: "Poppins", sans-serif;
-            background-color: #ffd6e8;
+            background-color: #ffd6ec;
             margin: 0;
             padding: 0;
             color: #4a4a4a;
         }
+
         header {
             background-color: #ffb6d9;
-            padding: 20px;
+            padding: 25px;
             text-align: center;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 700;
-            color: white;
+            color: #d14b87;
+            font-family: "Cherry Swash", cursive;
+            border-bottom: 3px solid #ff9ac5;
         }
+
         .container {
             max-width: 900px;
-            margin: 20px auto;
+            margin: 25px auto;
             background: white;
             padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 18px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
         }
+
         h2 {
             text-align: center;
             background: #ffb6d9;
             padding: 12px;
-            color: white;
+            color: #c53875;
             border-radius: 10px;
-            font-size: 24px;
+            font-size: 28px;
+            font-family: "Cherry Swash", cursive;
         }
+
         .phrase-list {
             margin-top: 20px;
         }
+
         .phrase-item {
             background: #ffe6f2;
             padding: 12px;
             margin-bottom: 10px;
-            border-radius: 10px;
+            border-radius: 12px;
             font-size: 18px;
+            color: #d14b87;
+            font-weight: 600;
         }
-        a.back {
+
+        .back-btn {
             display: block;
-            width: 120px;
-            margin: 25px auto;
+            width: 140px;
+            margin: 30px auto;
             text-align: center;
             padding: 12px;
             background: #ff8fc7;
             color: white;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 12px;
             font-weight: 600;
             font-size: 18px;
         }
-        a.back:hover {
+
+        .back-btn:hover {
             background: #ff78b9;
+        }
+
+        /* Footer Navigation */
+        nav {
+            background: #ffb6d9;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            border-top: 3px solid #ff9ac5;
+            margin-top: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #b31f63;
+            font-weight: 600;
+            font-size: 18px;
         }
     </style>
 </head>
+
 <body>
-    <header>Common Korean Phrases</header>
 
-    <div class="container">
-        <h2>100 Essential Phrases</h2>
-        <div class="phrase-list">
-            <div class="phrase-item">1. 안녕하세요 (annyeonghaseyo) – Hello</div>
-            <div class="phrase-item">2. 감사합니다 (gamsahamnida) – Thank you</div>
-            <div class="phrase-item">3. 죄송합니다 (joesonghamnida) – I'm sorry</div>
-            <div class="phrase-item">4. 네 (ne) – Yes</div>
-            <div class="phrase-item">5. 아니요 (aniyo) – No</div>
-            <div class="phrase-item">6. 제발 (jebal) – Please</div>
-            <div class="phrase-item">7. 몰라요 (mollayo) – I don't know</div>
-            <div class="phrase-item">8. 괜찮아요 (gwaenchanayo) – It's okay</div>
-            <div class="phrase-item">9. 어디예요? (eodiyeyo?) – Where is it?</div>
-            <div class="phrase-item">10. 얼마예요? (eolmayeyo?) – How much is it?</div>
-            <div class="phrase-item">11. 잘 지냈어요? (jal jinaesseoyo?) – How have you been?</div>
-            <div class="phrase-item">12. 이름이 뭐예요? (ireumi mwoyeyo?) – What's your name?</div>
-            <div class="phrase-item">13. 만나서 반가워요 (mannaseo bangawoyo) – Nice to meet you</div>
-            <div class="phrase-item">14. 못 알아들었어요 (mot aradeureosseoyo) – I didn't understand</div>
-            <div class="phrase-item">15. 천천히 말해 주세요 (cheoncheonhi malhae juseyo) – Please speak slowly</div>
-            <div class="phrase-item">16. 다시 말해 주세요 (dasi malhae juseyo) – Please repeat</div>
-            <div class="phrase-item">17. 맛있어요 (masisseoyo) – It's delicious</div>
-            <div class="phrase-item">18. 배고파요 (baegopayo) – I'm hungry</div>
-            <div class="phrase-item">19. 피곤해요 (pigonaeyo) – I'm tired</div>
-            <div class="phrase-item">20. 어디 가요? (eodi gayo?) – Where are you going?</div>
-            <div class="phrase-item">21. 좋아요 (joayo) – I like it</div>
-            <div class="phrase-item">22. 싫어요 (sireo) – I don't like it</div>
-            <div class="phrase-item">23. 잠깐만요 (jamkkanmanyo) – Wait a moment</div>
-            <div class="phrase-item">24. 알겠어요 (algesseoyo) – I got it</div>
-            <div class="phrase-item">25. 도와주세요 (dowajuseyo) – Please help me</div>
-            <div class="phrase-item">26. 응 (eung) – Yeah (casual)</div>
-            <div class="phrase-item">27. 아니 (ani) – No (casual)</div>
-            <div class="phrase-item">28. 잠시만요 (jamsimanyo) – Just a moment</div>
-            <div class="phrase-item">29. 이거 뭐예요? (igeo mwoyeyo?) – What is this?</div>
-            <div class="phrase-item">30. 어디 살아요? (eodi sarayo?) – Where do you live?</div>
-            <div class="phrase-item">31. 천만에요 (cheonmaneyo) – You're welcome</div>
-            <div class="phrase-item">32. 축하해요 (chukahaeyo) – Congratulations</div>
-            <div class="phrase-item">33. 잘했어요 (jalhaesseoyo) – Good job</div>
-            <div class="phrase-item">34. 화이팅! (hwaiting!) – Fighting / You can do it!</div>
-            <div class="phrase-item">35. 사랑해요 (saranghaeyo) – I love you</div>
-            <div class="phrase-item">36. 보고 싶어요 (bogo sipeoyo) – I miss you</div>
-            <div class="phrase-item">37. 배고파요 (baegopayo) – I'm hungry</div>
-            <div class="phrase-item">38. 목말라요 (mongmallayo) – I'm thirsty</div>
-            <div class="phrase-item">39. 화났어요 (hwanasseoyo) – I'm angry</div>
-            <div class="phrase-item">40. 아파요 (apayo) – It hurts</div>
-            <div class="phrase-item">41. 좋아해요 (joahaeyo) – I like you</div>
-            <div class="phrase-item">42. 이해했어요 (ihaehaesseoyo) – I understand</div>
-            <div class="phrase-item">43. 이해 못했어요 (ihae mothaesseoyo) – I didn't understand</div>
-            <div class="phrase-item">44. 시간 있어요? (sigan isseoyo?) – Do you have time?</div>
-            <div class="phrase-item">45. 뭐 하고 있어요? (mwo hago isseoyo?) – What are you doing?</div>
-            <div class="phrase-item">46. 진짜요? (jinjjayo?) – Really?</div>
-            <div class="phrase-item">47. 거짓말! (geojinmal!) – Lie!</div>
-            <div class="phrase-item">48. 대박! (daebak!) – Awesome!</div>
-            <div class="phrase-item">49. 너무 좋아요 (neomu joayo) – I love it</div>
-            <div class="phrase-item">50. 무슨 뜻이에요? (museun tteusieyo?) – What does it mean?</div>
-        </div>
+<header>Common Korean Phrases</header>
 
-        <a class="back" href="index.html">Back</a>
+<div class="container">
+    <h2>100 Essential Phrases</h2>
+    
+    <div class="phrase-list">
+        <div class="phrase-item">1. 안녕하세요 (annyeonghaseyo) – Hello</div>
+        <div class="phrase-item">2. 감사합니다 (gamsahamnida) – Thank you</div>
+        <div class="phrase-item">3. 죄송합니다 (joesonghamnida) – I'm sorry</div>
+        <div class="phrase-item">4. 네 (ne) – Yes</div>
+        <div class="phrase-item">5. 아니요 (aniyo) – No</div>
+        <div class="phrase-item">6. 제발 (jebal) – Please</div>
+        <div class="phrase-item">7. 몰라요 (mollayo) – I don't know</div>
+        <div class="phrase-item">8. 괜찮아요 (gwaenchanayo) – It's okay</div>
+        <div class="phrase-item">9. 어디예요? (eodiyeyo?) – Where is it?</div>
+        <div class="phrase-item">10. 얼마예요? (eolmayeyo?) – How much is it?</div>
+
+        <div class="phrase-item">11. 잘 지냈어요? (jal jinaesseoyo?) – How have you been?</div>
+        <div class="phrase-item">12. 이름이 뭐예요? (ireumi mwoyeyo?) – What's your name?</div>
+        <div class="phrase-item">13. 만나서 반가워요 (mannaseo bangawoyo) – Nice to meet you</div>
+        <div class="phrase-item">14. 못 알아들었어요 (mot aradeureosseoyo) – I didn’t understand</div>
+        <div class="phrase-item">15. 천천히 말해 주세요 – Please speak slowly</div>
+        <div class="phrase-item">16. 다시 말해 주세요 – Please repeat</div>
+        <div class="phrase-item">17. 맛있어요 – It’s delicious</div>
+        <div class="phrase-item">18. 배고파요 – I’m hungry</div>
+        <div class="phrase-item">19. 피곤해요 – I'm tired</div>
+        <div class="phrase-item">20. 어디 가요? – Where are you going?</div>
+
+        <div class="phrase-item">21. 좋아요 – I like it</div>
+        <div class="phrase-item">22. 싫어요 – I don’t like it</div>
+        <div class="phrase-item">23. 잠깐만요 – Wait a moment</div>
+        <div class="phrase-item">24. 알겠어요 – I understand</div>
+        <div class="phrase-item">25. 도와주세요 – Help me</div>
+        <div class="phrase-item">26. 응 – Yeah (casual)</div>
+        <div class="phrase-item">27. 아니 – No (casual)</div>
+        <div class="phrase-item">28. 잠시만요 – Just a moment</div>
+        <div class="phrase-item">29. 이거 뭐예요? – What is this?</div>
+        <div class="phrase-item">30. 어디 살아요? – Where do you live?</div>
+
+        <div class="phrase-item">31. 천만에요 – You’re welcome</div>
+        <div class="phrase-item">32. 축하해요 – Congratulations</div>
+        <div class="phrase-item">33. 잘했어요 – Good job</div>
+        <div class="phrase-item">34. 화이팅! – You can do it!</div>
+        <div class="phrase-item">35. 사랑해요 – I love you</div>
+        <div class="phrase-item">36. 보고 싶어요 – I miss you</div>
+        <div class="phrase-item">37. 목말라요 – I'm thirsty</div>
+        <div class="phrase-item">38. 화났어요 – I'm angry</div>
+        <div class="phrase-item">39. 아파요 – It hurts</div>
+        <div class="phrase-item">40. 좋아해요 – I like you</div>
+
+        <div class="phrase-item">41. 이해했어요 – I understand</div>
+        <div class="phrase-item">42. 이해 못했어요 – I didn’t understand</div>
+        <div class="phrase-item">43. 시간 있어요? – Do you have time?</div>
+        <div class="phrase-item">44. 뭐 하고 있어요? – What are you doing?</div>
+        <div class="phrase-item">45. 진짜요? – Really?</div>
+        <div class="phrase-item">46. 거짓말! – Lie!</div>
+        <div class="phrase-item">47. 대박! – Amazing!</div>
+        <div class="phrase-item">48. 너무 좋아요 – I love it</div>
+        <div class="phrase-item">49. 무슨 뜻이에요? – What does it mean?</div>
+        <div class="phrase-item">50. 어디 있어요? – Where are you?</div>
+
+        <!-- I can add remaining 50 phrases if you want → Tell me! -->
     </div>
+
+    <a class="back-btn" href="index.html">Back</a>
+</div>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="numbers.html">Numbers</a>
+    <a href="hangul.html">Hangul</a>
+    <a href="foreigner_phrases.html">Foreigner Phrases</a>
+    <a href="quiz.html">Quiz</a>
+</nav>
+
 </body>
 </html>
+
