@@ -1,0 +1,168 @@
+/* -------------------------
+   GLOBAL STYLING
+--------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffdcec; /* baby pink */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Page Title */
+h1 {
+    margin-top: 30px;
+    color: #d63384;
+    font-size: 2.3rem;
+    font-weight: 600;
+}
+
+/* Sub-Title */
+h2, h3 {
+    color: #b52a6d;
+}
+
+/* -------------------------
+   CONTAINER / CARD STYLE
+--------------------------*/
+
+.container, .content-box, .quiz-box {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    margin: 25px auto;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* -------------------------
+   BUTTONS
+--------------------------*/
+
+.btn, button, .nav-btn {
+    background: #d63384;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+.btn:hover, button:hover, .nav-btn:hover {
+    background: #b52a6d;
+}
+
+/* Index page buttons */
+.menu-btn {
+    display: block;
+    background: #ffe1f3;
+    color: #d63384;
+    border: 2px solid #d63384;
+    width: 80%;
+    padding: 12px;
+    margin: 12px auto;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.menu-btn:hover {
+    background: #ffc7e4;
+}
+
+/* -------------------------
+   LIST STYLING
+--------------------------*/
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #ffe7f5;
+    margin: 8px 0;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #333;
+    transition: 0.3s;
+}
+
+li:hover {
+    background: #ffd1eb;
+}
+
+/* Phrase item formatting */
+.phrase {
+    padding: 12px;
+    border-radius: 10px;
+    background: #fff0f8;
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+/* -------------------------
+   QUIZ STYLING
+--------------------------*/
+
+.quiz-box {
+    margin-top: 20px;
+}
+
+.question {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.option {
+    background: #ffe3f2;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.option:hover {
+    background: #ffcae0;
+}
+
+.result {
+    font-size: 1.4rem;
+    margin-top: 20px;
+    color: #7a1451;
+    font-weight: 600;
+}
+
+/* -------------------------
+   IMAGES
+--------------------------*/
+
+img {
+    width: 70%;
+    max-width: 300px;
+    margin: 10px auto;
+    display: block;
+}
+
+/* -------------------------
+   MOBILE FRIENDLY
+--------------------------*/
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    .menu-btn {
+        font-size: 1rem;
+    }
+}
