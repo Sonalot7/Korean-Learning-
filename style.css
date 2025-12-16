@@ -1,12 +1,22 @@
 /* -------------------------
-   GLOBAL STYLING
+   GLOBAL STYLING (NEUMORPHIC)
 --------------------------*/
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
+:root {
+    --bg: #ffdcec;
+    --surface: #ffffff;
+    --primary: #d63384;
+    --primary-dark: #b52a6d;
+
+    --shadow-light: rgba(255,255,255,0.9);
+    --shadow-dark: rgba(0,0,0,0.12);
+}
+
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #ffdcec; /* baby pink */
+    background: var(--bg);
     margin: 0;
     padding: 0;
     text-align: center;
@@ -15,70 +25,91 @@ body {
 /* Page Title */
 h1 {
     margin-top: 30px;
-    color: #d63384;
+    color: var(--primary);
     font-size: 2.3rem;
     font-weight: 600;
 }
 
 /* Sub-Title */
 h2, h3 {
-    color: #b52a6d;
+    color: var(--primary-dark);
 }
 
 /* -------------------------
    CONTAINER / CARD STYLE
 --------------------------*/
 
-.container, .content-box, .quiz-box {
-    background: white;
+.container,
+.content-box,
+.quiz-box {
+    background: var(--surface);
     width: 90%;
     max-width: 600px;
     margin: 25px auto;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    padding: 22px;
+    border-radius: 22px;
+
+    box-shadow:
+        -10px -10px 20px var(--shadow-light),
+         10px  10px 20px var(--shadow-dark);
 }
 
 /* -------------------------
-   BUTTONS
+   BUTTONS (RAISED + PRESSED)
 --------------------------*/
 
-.btn, button, .nav-btn {
-    background: #d63384;
+.btn,
+button,
+.nav-btn {
+    background: var(--primary);
     color: white;
     border: none;
-    padding: 14px 20px;
-    border-radius: 12px;
+    padding: 14px 22px;
+    border-radius: 14px;
     font-size: 1rem;
     cursor: pointer;
     margin: 10px;
-    transition: 0.3s;
+    transition: 0.25s ease;
+
+    box-shadow:
+        -5px -5px 10px rgba(255,255,255,0.4),
+         5px  5px 10px rgba(0,0,0,0.25);
 }
 
-.btn:hover, button:hover, .nav-btn:hover {
-    background: #b52a6d;
+.btn:active,
+button:active,
+.nav-btn:active {
+    box-shadow:
+        inset 5px 5px 10px rgba(0,0,0,0.25),
+        inset -5px -5px 10px rgba(255,255,255,0.3);
 }
 
 /* Index page buttons */
 .menu-btn {
     display: block;
     background: #ffe1f3;
-    color: #d63384;
-    border: 2px solid #d63384;
+    color: var(--primary);
+    border: none;
     width: 80%;
-    padding: 12px;
-    margin: 12px auto;
-    border-radius: 15px;
+    padding: 14px;
+    margin: 14px auto;
+    border-radius: 18px;
     font-size: 1.1rem;
     transition: 0.3s;
+
+    box-shadow:
+        -8px -8px 16px var(--shadow-light),
+         8px  8px 16px var(--shadow-dark);
 }
 
-.menu-btn:hover {
-    background: #ffc7e4;
+.menu-btn:active {
+    box-shadow:
+        inset 6px 6px 12px var(--shadow-dark),
+        inset -6px -6px 12px var(--shadow-light);
 }
 
 /* -------------------------
-   LIST STYLING
+   LIST STYLING (SOFT CARDS)
 --------------------------*/
 
 ul {
@@ -88,25 +119,28 @@ ul {
 
 li {
     background: #ffe7f5;
-    margin: 8px 0;
-    padding: 12px;
-    border-radius: 12px;
+    margin: 10px 0;
+    padding: 14px;
+    border-radius: 16px;
     font-size: 1rem;
     color: #333;
-    transition: 0.3s;
+
+    box-shadow:
+        -6px -6px 12px rgba(255,255,255,0.8),
+         6px  6px 12px rgba(0,0,0,0.12);
 }
 
-li:hover {
-    background: #ffd1eb;
-}
-
-/* Phrase item formatting */
+/* Phrase item */
 .phrase {
-    padding: 12px;
-    border-radius: 10px;
+    padding: 14px;
+    border-radius: 14px;
     background: #fff0f8;
-    margin: 10px 0;
+    margin: 12px 0;
     font-size: 1.1rem;
+
+    box-shadow:
+        inset 5px 5px 10px rgba(0,0,0,0.08),
+        inset -5px -5px 10px rgba(255,255,255,0.8);
 }
 
 /* -------------------------
@@ -125,15 +159,21 @@ li:hover {
 
 .option {
     background: #ffe3f2;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 12px;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 16px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.25s;
+
+    box-shadow:
+        -6px -6px 12px rgba(255,255,255,0.9),
+         6px  6px 12px rgba(0,0,0,0.12);
 }
 
-.option:hover {
-    background: #ffcae0;
+.option:active {
+    box-shadow:
+        inset 5px 5px 10px rgba(0,0,0,0.15),
+        inset -5px -5px 10px rgba(255,255,255,0.7);
 }
 
 .result {
@@ -162,7 +202,9 @@ img {
     h1 {
         font-size: 1.8rem;
     }
+
     .menu-btn {
         font-size: 1rem;
     }
 }
+
